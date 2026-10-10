@@ -1,0 +1,43 @@
+[
+  {
+    "id": "ruta-sol-patrimonio",
+    "name": "Ruta Sol y Patrimonio",
+    "zone": "Occidente fluvial/colonial",
+    "approximateDuration": "Aprox. 2 a 3 horas en trayectos terrestres entre municipios",
+    "roadType": "Vía pavimentada secundaria y terciaria en condiciones variables; algunos tramos en curvas de montaña",
+    "effortLevel": "Bajo",
+    "description": "Circuito que articula la historia colonial de Santa Fe de Antioquia con el paisaje rural de San Jerónimo y la naturaleza tranquila de Ebéjico. Recorre el valle fluvial del río Cauca en su tramo occidental, combinando arquitectura patrimonial, gastronomía campesina y cultivos de flores y frutas tropicales.",
+    "stops": [
+      "Santa Fe de Antioquia",
+      "San Jerónimo",
+      "Ebéjico"
+    ]
+  },
+  {
+    "id": "ruta-bosques-canones",
+    "name": "Ruta Bosques y Cañones",
+    "zone": "Occidente de cordillera",
+    "approximateDuration": "Aprox. 3 a 5 horas de trayecto terrestre; accesos de montaña con curvas pronunciadas",
+    "roadType": "Vías terciarias de montaña; algunos tramos sin pavimentar y con pendientes exigentes",
+    "effortLevel": "Exigente",
+    "description": "Recorrido por la vertiente alta de la cordillera occidental que conecta el municipio de Abriaquí, con acceso a bosques altoandinos y zonas de páramo, con Peque y sus serranías de bosque tropical. Es la ruta más demandante del circuito de Occidente y la más recomendada para excursionistas con experiencia en alta montaña.",
+    "stops": [
+      "Abriaquí",
+      "Peque"
+    ]
+  },
+  {
+    "id": "ruta-aguas-del-norte",
+    "name": "Ruta Aguas del Norte",
+    "zone": "Norte verde",
+    "approximateDuration": "Aprox. 4 a 6 horas de trayecto terrestre total entre los tres municipios",
+    "roadType": "Vías secundarias y terciarias de montaña; algunos tramos sin pavimentar que pueden afectarse en temporadas de lluvia",
+    "effortLevel": "Moderado",
+    "description": "Circuito que conecta tres municipios del norte antioqueño con gran riqueza hídrica y ecosistemas de montaña. Parte de Toledo con sus páramos andinos, desciende hacia San José de la Montaña con sus bosques de niebla y fincas lecheras, y finaliza en Ituango junto al cañón del río Cauca. Un recorrido que transita por diferentes pisos térmicos y paisajes de gran contraste.",
+    "stops": [
+      "Toledo",
+      "San José de la Montaña",
+      "Ituango"
+    ]
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "gal-01",
+    "title": "Calle Empedrada Colonial",
+    "category": "cultural",
+    "location": "Santa Fe de Antioquia",
+    "alt": "Calle empedrada con casonas coloniales de fachada blanca y balcones de madera en el centro histórico de Santa Fe de Antioquia",
+    "description": "El corazón del centro histórico conserva una arquitectura colonial que transporta al visitante a los siglos XVII y XVIII, con sus características fachadas encaladas y balcones de madera.",
+    "image": "gal-01.webp"
+  },
+  {
+    "id": "gal-02",
+    "title": "Plaza Central y Templo Colonial",
+    "category": "cultural",
+    "location": "Santa Fe de Antioquia",
+    "alt": "Plaza central con jardines verdes frente a un templo colonial de fachada blanca bajo cielo azul en Santa Fe de Antioquia",
+    "description": "La plaza mayor concentra la vida pública del municipio, enmarcada por edificaciones de valor patrimonial y rodeada de árboles que ofrecen sombra en el clima cálido.",
+    "image": "gal-02.webp"
+  },
+  {
+    "id": "gal-03",
+    "title": "Feria Campesina de San Jerónimo",
+    "category": "cultural",
+    "location": "San Jerónimo",
+    "alt": "Colorido mercado campesino con frutas tropicales, flores y artesanías locales dispuestas en puestos al aire libre en San Jerónimo",
+    "description": "Los mercados campesinos de San Jerónimo exhiben la variedad de flores y frutas tropicales que produce el municipio, siendo una experiencia de intercambio cultural y gastronómico directa con los productores.",
+    "image": "gal-03.webp"
+  },
+  {
+    "id": "gal-04",
+    "title": "Bosque de Niebla Andino",
+    "category": "naturaleza",
+    "location": "San José de la Montaña",
+    "alt": "Sendero entre árboles cubiertos de musgo y epífitas en un bosque de niebla andino, con bruma suave entre el follaje en San José de la Montaña",
+    "description": "Los bosques de niebla del norte antioqueño albergan una concentración notable de epífitas, musgos y orquídeas que crean microambientes de gran humedad y biodiversidad.",
+    "image": "gal-04.webp"
+  },
+  {
+    "id": "gal-05",
+    "title": "Páramo en Neblina",
+    "category": "naturaleza",
+    "location": "Toledo",
+    "alt": "Paisaje de páramo con frailejones y vegetación de alta montaña envuelto en niebla matutina en Toledo, norte de Antioquia",
+    "description": "El ecosistema de páramo que rodea Toledo presenta frailejones y vegetación especializada adaptada a las condiciones frías y húmedas de alta montaña, siendo regulador hídrico fundamental.",
+    "image": "gal-05.webp"
+  },
+  {
+    "id": "gal-06",
+    "title": "Corredor de Biodiversidad Boscosa",
+    "category": "naturaleza",
+    "location": "Ebéjico",
+    "alt": "Vista aérea de corredor de bosque tropical con dosel verde denso entre zonas de transición en Ebéjico, occidente de Antioquia",
+    "description": "Los corredores de bosque secundario de Ebéjico conectan fragmentos de hábitat y permiten el desplazamiento de fauna silvestre, siendo cruciales para la conservación de la biodiversidad local.",
+    "image": "gal-06.webp"
+  },
+  {
+    "id": "gal-07",
+    "title": "Senderismo en Serranía de Cordillera",
+    "category": "aventura",
+    "location": "Peque",
+    "alt": "Senderista con mochila en un sendero de montaña rodeado de vegetación tropical densa en la serranía de Peque, occidente antioqueño",
+    "description": "Los senderos de las serranías de Peque permiten internarse en bosques tropicales poco intervenidos, ofreciendo al senderista experimentado la sensación de explorar territorios auténticos del occidente.",
+    "image": "gal-07.webp"
+  },
+  {
+    "id": "gal-08",
+    "title": "Trekking de Alta Montaña",
+    "category": "aventura",
+    "location": "Abriaquí",
+    "alt": "Grupo de senderistas con equipo de montaña ascendiendo una ladera empinada entre vegetación de bosque altoandino con neblina al fondo en Abriaquí",
+    "description": "Los recorridos de alta montaña en Abriaquí ponen a prueba la resistencia física y recompensan al excursionista con vistas panorámicas de la cordillera occidental y ecosistemas de gran valor ecológico.",
+    "image": "gal-08.webp"
+  },
+  {
+    "id": "gal-09",
+    "title": "Cañón del Río Cauca en Ituango",
+    "category": "aventura",
+    "location": "Ituango",
+    "alt": "Vista impresionante del cañón profundo del río Cauca con paredes rocosas escarpadas y vegetación en los márgenes en Ituango, norte de Antioquia",
+    "description": "El cañón del río Cauca en su paso por Ituango ofrece uno de los paisajes geológicos más imponentes de Antioquia, con formaciones rocosas de gran escala y una riqueza hídrica extraordinaria.",
+    "image": "gal-09.webp"
+  },
+  {
+    "id": "gal-10",
+    "title": "Cascada en Quebrada de Occidente",
+    "category": "aguas",
+    "location": "Ebéjico",
+    "alt": "Cascada de agua clara cayendo sobre rocas con vegetación tropical exuberante alrededor en una quebrada de Ebéjico",
+    "description": "Las quebradas de Ebéjico esconden cascadas de agua cristalina que descienden entre vegetación densa, ofreciendo refrescantes pozas naturales para el baño en medio del bosque.",
+    "image": "gal-10.webp"
+  },
+  {
+    "id": "gal-11",
+    "title": "Ribera del Río Cauca en Santa Fe",
+    "category": "aguas",
+    "location": "Santa Fe de Antioquia",
+    "alt": "Ribera del río Cauca con aguas brillantes bajo sol tropical, vegetación de orilla y bañistas disfrutando del calor en Santa Fe de Antioquia",
+    "description": "Las orillas del río Cauca junto a Santa Fe de Antioquia son un destino popular para el baño y el descanso, combinando el calor del municipio con la frescura del río histórico.",
+    "image": "gal-11.webp"
+  },
+  {
+    "id": "gal-12",
+    "title": "Cuencas Hídricas del Norte Andino",
+    "category": "aguas",
+    "location": "San José de la Montaña",
+    "alt": "Arroyo de montaña de aguas cristalinas corriendo entre piedras y helechos en un bosque andino de San José de la Montaña",
+    "description": "Los nacimientos de agua y cuencas altas del norte antioqueño alimentan ríos y quebradas que abastecen a poblaciones de la región, siendo ecosistemas prioritarios para la conservación hídrica.",
+    "image": "gal-12.webp"
+  }
+]

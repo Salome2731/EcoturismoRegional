@@ -141,7 +141,7 @@ Cada tarea incluye:
 
 ## Bloque 3: Datos Locales JSON y Gestión de Imágenes
 
-### - [ ] T10: Crear archivo de datos `src/data/destinations.json`
+### - [x] T10: Crear archivo de datos `src/data/destinations.json`
 - **Descripción**: Estructurar la información de los 8 municipios oficiales de la v1 (Santa Fe de Antioquia, Ebéjico, San Jerónimo, Abriaquí, Peque, Toledo, Ituango, San José de la Montaña), clasificando 5 en Occidente y 3 en Norte, con clima, dificultad, mínimo 2 actividades, resumen narrativo, detalles extendidos e identificador de imagen local.
 - **Archivos involucrados**:
   - `src/data/destinations.json`
@@ -153,7 +153,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T11: Crear archivo de datos `src/data/gallery.json`
+### - [x] T11: Crear archivo de datos `src/data/gallery.json`
 - **Descripción**: Estructurar los datos fotográficos de la galería con un mínimo de 12 registros balanceados entre las 4 categorías oficiales (`naturaleza`, `aventura`, `cultural`, `aguas`), asignando a cada uno título descriptivo, ubicación en Antioquia, texto alternativo `alt` accesible y nombre de archivo de imagen.
 - **Archivos involucrados**:
   - `src/data/gallery.json`
@@ -165,7 +165,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T12: Crear archivo de datos `src/data/routes.json`
+### - [x] T12: Crear archivo de datos `src/data/routes.json`
 - **Descripción**: Estructurar los 3 circuitos sugeridos oficiales de la especificación: Ruta Sol y Patrimonio (Occidente fluvial/colonial), Ruta Bosques y Cañones (Occidente de cordillera) y Ruta Aguas del Norte (Norte verde). Los tiempos de duración deben expresarse estrictamente en rangos aproximados realistas.
 - **Archivos involucrados**:
   - `src/data/routes.json`

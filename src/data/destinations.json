@@ -1,0 +1,194 @@
+[
+  {
+    "id": "santa-fe-de-antioquia",
+    "name": "Santa Fe de Antioquia",
+    "subregion": "Occidente",
+    "climate": "Cálido seco (promedio 28 °C)",
+    "difficulty": "Baja",
+    "activities": [
+      "Recorrido histórico por el centro colonial",
+      "Caminatas ribereñas y baños en el río Cauca",
+      "Visita a museos y templos coloniales",
+      "Agroturismo en fincas cafeteras y frutales"
+    ],
+    "summary": "Primera capital de Antioquia, reconocida por su arquitectura colonial, sus calles empedradas y su clima cálido a orillas del río Cauca. Destino ideal para quienes buscan historia viva y una gastronomía campesina auténtica.",
+    "extendedDetails": {
+      "recommendedGear": "Ropa ligera y fresca, protector solar, sombrero de ala ancha y calzado cómodo para caminar sobre empedrado.",
+      "bestSeason": "Todo el año; los periodos de menor lluvia (diciembre a marzo) son ideales para caminatas ribereñas.",
+      "localHighlights": [
+        "Puente de Occidente (estructura metálica de finales del siglo XIX sobre el río Cauca)",
+        "Centro histórico con arquitectura colonial declarada patrimonio",
+        "Plaza mayor y templos coloniales"
+      ]
+    },
+    "image": "santa-fe-antioquia.webp"
+  },
+  {
+    "id": "ebejico",
+    "name": "Ebéjico",
+    "subregion": "Occidente",
+    "climate": "Templado a cálido (promedio entre 20 °C y 26 °C según altitud)",
+    "difficulty": "Media",
+    "activities": [
+      "Senderismo por bosques y quebradas",
+      "Avistamiento de aves en áreas de transición",
+      "Agroturismo y visitas a fincas paneleras",
+      "Baños en quebradas y cascadas locales"
+    ],
+    "summary": "Municipio boscoso con pisos térmicos variados, abundante avifauna y paisajes de montaña poco explorados por el turismo masivo. Ofrece una experiencia de naturaleza tranquila y cercana a comunidades campesinas.",
+    "extendedDetails": {
+      "recommendedGear": "Calzado de senderismo o botas de caucho, impermeable ligero, repelente de insectos y ropa en capas.",
+      "bestSeason": "Temporadas de menor lluvia para senderos; el avistamiento de aves es productivo todo el año en las primeras horas de la mañana.",
+      "localHighlights": [
+        "Zonas de bosque secundario con corredores de fauna",
+        "Cascadas y quebradas de agua limpia",
+        "Productores locales de panela y derivados"
+      ]
+    },
+    "image": "ebejico.webp"
+  },
+  {
+    "id": "san-jeronimo",
+    "name": "San Jerónimo",
+    "subregion": "Occidente",
+    "climate": "Templado agradable (promedio 22 °C a 24 °C)",
+    "difficulty": "Baja",
+    "activities": [
+      "Visita a fincas productoras de flores y frutas tropicales",
+      "Recorridos por cultivos de frutales exportables",
+      "Cicloturismo en vías rurales",
+      "Gastronomía local y ferias campesinas"
+    ],
+    "summary": "Municipio reconocido por su producción florícola y frutera, con un clima templado muy agradable. Su cercanía a Medellín lo convierte en una escapada popular de fin de semana con sabor rural y familiar.",
+    "extendedDetails": {
+      "recommendedGear": "Ropa cómoda y ligera, protector solar, calzado cómodo para caminar en vías rurales.",
+      "bestSeason": "Todo el año; ideal en cosechas de frutas durante los meses de mayor producción local.",
+      "localHighlights": [
+        "Fincas florícolas y huertos de frutas tropicales",
+        "Vías rurales aptas para cicloturismo",
+        "Mercados campesinos de productos frescos"
+      ]
+    },
+    "image": "san-jeronimo.webp"
+  },
+  {
+    "id": "abriaqui",
+    "name": "Abriaquí",
+    "subregion": "Occidente",
+    "climate": "Frío andino (promedio entre 14 °C y 18 °C)",
+    "difficulty": "Alta",
+    "activities": [
+      "Senderismo de largo aliento hacia zonas de páramo y bosque altoandino",
+      "Avistamiento de fauna de alta montaña",
+      "Fotografía de paisajes neblinosos y ecosistemas andinos",
+      "Camping en zonas autorizadas"
+    ],
+    "summary": "Pequeño municipio de cordillera con acceso a ecosistemas de páramo, bosques de niebla y paisajes de alta montaña poco alterados. Es destino preferido por senderistas con experiencia que buscan naturaleza en estado casi prístino.",
+    "extendedDetails": {
+      "recommendedGear": "Ropa abrigadora en capas, impermeable de montaña, botas de senderismo impermeables, bastones de trekking y equipo de camping si se pernocta.",
+      "bestSeason": "Temporadas secas para senderos de alta montaña; consultar condiciones climáticas locales antes de salir.",
+      "localHighlights": [
+        "Ecosistemas de bosque andino y transición a páramo",
+        "Vistas panorámicas de la cordillera occidental",
+        "Flora endémica de alta montaña"
+      ]
+    },
+    "image": "abriaqui.webp"
+  },
+  {
+    "id": "peque",
+    "name": "Peque",
+    "subregion": "Occidente",
+    "climate": "Templado a cálido (promedio entre 22 °C y 27 °C según zona)",
+    "difficulty": "Media",
+    "activities": [
+      "Senderismo por bosques tropicales y serranías",
+      "Observación de flora nativa y biodiversidad vegetal",
+      "Visitas a comunidades indígenas y campesinas locales",
+      "Fotografía de paisajes de cordillera occidental"
+    ],
+    "summary": "Municipio remoto del occidente de Antioquia con paisajes de serranía, biodiversidad notable y culturas locales arraigadas. Su relativo aislamiento lo preserva como destino de naturaleza auténtica y poco intervenida.",
+    "extendedDetails": {
+      "recommendedGear": "Calzado de montaña, ropa en capas, impermeable, repelente de insectos y provisiones suficientes dado el acceso limitado a servicios.",
+      "bestSeason": "Verificar temporadas de lluvia y estado de las vías de acceso antes de planificar la visita.",
+      "localHighlights": [
+        "Serranías con bosques tropicales bien conservados",
+        "Comunidades locales con conocimiento de flora medicinal",
+        "Paisajes vírgenes de montaña occidental"
+      ]
+    },
+    "image": "peque.webp"
+  },
+  {
+    "id": "toledo",
+    "name": "Toledo",
+    "subregion": "Norte",
+    "climate": "Frío andino (promedio entre 13 °C y 17 °C)",
+    "difficulty": "Alta",
+    "activities": [
+      "Senderismo hacia zonas de páramo y bosque de niebla",
+      "Avistamiento de fauna andina, incluyendo aves de páramo",
+      "Fotografía de paisajes de neblina y alta montaña",
+      "Turismo de naturaleza con comunidades locales"
+    ],
+    "summary": "Municipio del norte de Antioquia ubicado en alturas de cordillera, conocido por sus paisajes de páramo y bosque de niebla. Ideal para senderistas exigentes que valoran la biodiversidad de ecosistemas andinos de altura.",
+    "extendedDetails": {
+      "recommendedGear": "Ropa térmica y abrigadora en capas, impermeable de montaña, botas impermeables de senderismo y bastones de apoyo.",
+      "bestSeason": "Temporadas de menor lluvia; el clima de alta montaña puede cambiar rápidamente, planificar con margen de tiempo.",
+      "localHighlights": [
+        "Ecosistemas de páramo con flora especializada",
+        "Bosques de niebla con gran variedad de epífitas y orquídeas",
+        "Vistas panorámicas hacia cañones y valles del norte"
+      ]
+    },
+    "image": "toledo.webp"
+  },
+  {
+    "id": "ituango",
+    "name": "Ituango",
+    "subregion": "Norte",
+    "climate": "Variable según altitud (desde cálido en cañón hasta frío en cimas)",
+    "difficulty": "Alta",
+    "activities": [
+      "Observación del cañón del río Cauca y sus formaciones geológicas",
+      "Senderismo por laderas de cañón",
+      "Avistamiento de aves endémicas y migratorias",
+      "Recorridos por zonas de influencia hídrica del río Cauca"
+    ],
+    "summary": "Municipio de gran diversidad altitudinal a orillas del cañón del río Cauca en su tramo norte. Ofrece paisajes de gran impacto visual, biodiversidad notable y la oportunidad de conocer uno de los territorios más ricos en recursos hídricos de Antioquia.",
+    "extendedDetails": {
+      "recommendedGear": "Ropa versátil en capas para diferentes pisos térmicos, calzado de senderismo robusto, protector solar y repelente de insectos.",
+      "bestSeason": "Verificar condiciones de acceso vial; el municipio tiene vías de montaña que pueden verse afectadas en temporadas de lluvia intensa.",
+      "localHighlights": [
+        "Cañón del río Cauca con formaciones geológicas imponentes",
+        "Diversidad de ecosistemas por gradiente altitudinal",
+        "Avifauna de cañón y zonas húmedas ribereñas"
+      ]
+    },
+    "image": "ituango.webp"
+  },
+  {
+    "id": "san-jose-de-la-montana",
+    "name": "San José de la Montaña",
+    "subregion": "Norte",
+    "climate": "Frío andino (promedio entre 12 °C y 16 °C)",
+    "difficulty": "Media",
+    "activities": [
+      "Senderismo por bosques de niebla y caminos rurales",
+      "Turismo rural en fincas lecheras y de papa",
+      "Observación de aves de alta montaña",
+      "Fotografía de paisajes neblinosos y agrícolas"
+    ],
+    "summary": "Municipio de clima frío y gran belleza paisajística, conocido por su vocación agropecuaria en altura. Sus fincas lecheras, caminos neblinosos y bosques de montaña crean una atmósfera tranquila y auténtica del norte antioqueño.",
+    "extendedDetails": {
+      "recommendedGear": "Ropa abrigadora, impermeable, botas impermeables y capas térmicas para noches y amaneceres en la montaña.",
+      "bestSeason": "Todo el año; los amaneceres con niebla son un atractivo particular que se disfruta en cualquier época.",
+      "localHighlights": [
+        "Fincas lecheras con producción de quesos artesanales locales",
+        "Bosques de niebla con senderos tranquilos",
+        "Paisajes agrícolas de alta montaña del norte antioqueño"
+      ]
+    },
+    "image": "san-jose-montana.webp"
+  }
+]
