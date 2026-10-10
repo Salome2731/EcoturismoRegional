@@ -75,7 +75,7 @@ Cada tarea incluye:
 
 ## Bloque 2: Layout Base y Navegación Global
 
-### - [ ] T05: Crear layout base `BaseLayout.astro`
+### - [x] T05: Crear layout base `BaseLayout.astro`
 - **Descripción**: Implementar el layout principal HTML5 con atributo `lang="es"`, metadatos SEO, Open Graph para ecoturismo de Antioquia, carga de estilos globales, contenedor responsivo mobile-first sin scroll horizontal y regla `scroll-smooth` en el elemento `html`.
 - **Archivos involucrados**:
   - `src/layouts/BaseLayout.astro`
