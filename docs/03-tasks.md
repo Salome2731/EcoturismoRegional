@@ -62,7 +62,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T04: Git Checkpoint 1 - Configuración inicial del entorno
+### - [x] T04: Git Checkpoint 1 - Configuración inicial del entorno
 - **Descripción**: Crear commit de git con la inicialización de Astro, integración de Tailwind, árbol de directorios y tipos de datos.
 - **Archivos involucrados**:
   - Todo el árbol inicial del proyecto
