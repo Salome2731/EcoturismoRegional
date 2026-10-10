@@ -17,7 +17,7 @@ Cada tarea incluye:
 
 ## Bloque 1: Inicialización y Configuración del Entorno
 
-### - [ ] T01: Verificar compatibilidad del entorno con Node v25 e inicializar proyecto Astro
+### - [x] T01: Verificar compatibilidad del entorno con Node v25 e inicializar proyecto Astro
 - **Descripción**: Validar el entorno de ejecución bajo Node v25 (`node -v`, `npm -v`) e inicializar la base del proyecto Astro en modo estático (SSG), asegurando que las dependencias base se resuelvan limpiamente sin conflictos de motor. Si Astro falla o arroja incompatibilidades críticas con Node v25, se documenta el error, se propone usar Node 22 o 24 LTS y no se avanza a la siguiente tarea hasta resolverlo.
 - **Archivos involucrados**:
   - `package.json`
@@ -33,7 +33,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T02: Integrar Tailwind CSS y configurar estilos base globales
+### - [x] T02: Integrar Tailwind CSS y configurar estilos base globales
 - **Descripción**: Ejecutar la integración oficial de Tailwind CSS para Astro (`npx astro add tailwind`), adoptar la sintaxis que genere el instalador oficial para la versión instalada de Tailwind, documentar la configuración resultante en `docs/02-plan.md` y establecer el archivo de estilos globales.
 - **Archivos involucrados**:
   - `astro.config.mjs`
@@ -49,7 +49,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T03: Configurar estructura de directorios y tipos TypeScript
+### - [x] T03: Configurar estructura de directorios y tipos TypeScript
 - **Descripción**: Crear la estructura de carpetas definida en el plan técnico dentro de `src/` (`assets/images/destinations/`, `assets/images/gallery/`, `components/layout/`, `components/sections/`, `components/ui/`, `data/`, `layouts/`, `pages/`, `styles/`, `types/`) y definir las interfaces TypeScript del modelo de datos (`Destination`, `GalleryItem`, `SuggestedRoute`).
 - **Archivos involucrados**:
   - `src/types/index.ts`

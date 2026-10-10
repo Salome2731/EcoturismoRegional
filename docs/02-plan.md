@@ -66,7 +66,7 @@ La organización del proyecto sigue una arquitectura limpia, orientada a conteni
 └── (archivos generados por la integración oficial de Tailwind)
 ```
 
-> **Nota sobre Tailwind CSS**: Tailwind se integra empleando el comando oficial de Astro (`npx astro add tailwind`). No se presupone de antemano la existencia de un archivo específico como `tailwind.config.mjs`; se adoptará y documentará exactamente la estructura de archivos y configuración que genere la herramienta oficial de Astro durante su instalación.
+> **Nota sobre Tailwind CSS**: Se ejecutó la integración oficial (`npx astro add tailwind`), instalando **Tailwind CSS v4** (`tailwindcss@^4.3.3` y `@tailwindcss/vite@^4.3.3`). Esta versión prescinde de `tailwind.config.mjs`; en su lugar, configura el plugin de Vite en `astro.config.mjs` (`vite: { plugins: [tailwindcss()] }`) y genera el archivo `src/styles/global.css` con la directiva nativa `@import "tailwindcss";`.
 
 ---
 
