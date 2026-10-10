@@ -1,0 +1,36 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Ecoturismo Antioquia | Rutas y Destinos de Naturaleza",
+  description = "Descubre el ecoturismo responsable en las subregiones Occidente y Norte de Antioquia. Rutas sugeridas, catálogo de municipios y naturaleza viva.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="es_CO" />
+  </head>
+  <body class="min-h-screen bg-stone-50 text-stone-900 font-sans antialiased overflow-x-hidden flex flex-col selection:bg-emerald-200 selection:text-emerald-900">
+    <slot />
+  </body>
+</html>

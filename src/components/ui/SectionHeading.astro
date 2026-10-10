@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  alignment?: 'center' | 'left';
+  tag?: string;
+  class?: string;
+}
+
+const {
+  title,
+  subtitle,
+  alignment = 'center',
+  tag,
+  class: className = '',
+} = Astro.props;
+
+const isCenter = alignment === 'center';
+---
+
+<div class:list={[
+  "flex flex-col max-w-3xl mb-10 sm:mb-14",
+  isCenter ? "text-center items-center mx-auto" : "text-left items-start",
+  className
+]}>
+  {tag && (
+    <span class="inline-flex items-center px-3 py-1 mb-3 text-xs font-semibold tracking-wider uppercase rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
+      {tag}
+    </span>
+  )}
+  <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-stone-900 leading-tight">
+    {title}
+  </h2>
+  {subtitle && (
+    <p class:list={[
+      "mt-3 text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl",
+      isCenter ? "mx-auto" : ""
+    ]}>
+      {subtitle}
+    </p>
+  )}
+</div>

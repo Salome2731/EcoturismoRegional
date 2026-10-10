@@ -1,17 +1,51 @@
 ---
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Ecoturismo Antioquia</title>
-	</head>
-	<body>
-		<h1 class="text-2xl font-bold text-emerald-600">Ecoturismo Antioquia</h1>
-	</body>
-</html>
+<BaseLayout title="Ecoturismo Antioquia | Portada">
+  <Header />
+
+  <main class="flex-1 pt-24 sm:pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    <!-- Demostración temporal de SectionHeading (centrado) y ancla #destinos -->
+    <section id="destinos" class="scroll-mt-24 py-12 border-b border-stone-200">
+      <SectionHeading
+        tag="Destinos Destacados"
+        title="Tesoros Naturales de Occidente y Norte"
+        subtitle="Explora municipios con valor ecológico, biodiversidad andina y arquitectura colonial en las subregiones de Antioquia."
+        alignment="center"
+      />
+      <div class="p-8 bg-stone-100 rounded-2xl border border-stone-200 text-center text-stone-600">
+        <p class="font-medium text-stone-800">Vista temporal para validación del layout base.</p>
+        <p class="text-sm mt-1 text-stone-500">El catálogo de 8 municipios se integrará en T16 y T17.</p>
+      </div>
+    </section>
+
+    <!-- Demostración temporal de SectionHeading (izquierda) y ancla #rutas -->
+    <section id="rutas" class="scroll-mt-24 py-12 border-b border-stone-200">
+      <SectionHeading
+        tag="Circuitos Sugeridos"
+        title="Rutas y Senderos de Cordillera"
+        subtitle="Trayectos diseñados para conectar localidades vecinas sin perderte las mejores reservas naturales."
+        alignment="left"
+      />
+      <div class="p-8 bg-amber-50/80 rounded-2xl border border-amber-200 text-stone-700">
+        <p class="font-medium text-amber-950">Vista temporal de circuitos territoriales.</p>
+        <p class="text-sm mt-1 text-amber-800">El esquema interactivo de rutas se integrará en T24 y T25.</p>
+      </div>
+    </section>
+
+    <!-- Anclas para verificación de navegación de Header y Footer -->
+    <section id="galeria" class="scroll-mt-24 py-8 border-b border-stone-200 text-stone-500 text-sm">
+      <p>Espacio reservado para la Galería interactiva (#galeria, T21).</p>
+    </section>
+
+    <section id="contacto" class="scroll-mt-24 py-8 text-stone-500 text-sm">
+      <p>Espacio reservado para el Formulario de contacto simulado (#contacto, T28).</p>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

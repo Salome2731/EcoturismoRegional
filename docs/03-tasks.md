@@ -88,7 +88,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T06: Crear componente de encabezado `Header.astro`
+### - [x] T06: Crear componente de encabezado `Header.astro`
 - **Descripción**: Maquetar barra de navegación fija/adherida con semántica `<header>` y `<nav aria-label="Navegación principal">`. Incluir enlaces ancla hacia `#destinos`, `#galeria`, `#rutas`, `#contacto`. Implementar menú móvil accesible con botón hamburguesa, atributos `aria-expanded` y cierre automático al pulsar enlaces.
 - **Archivos involucrados**:
   - `src/components/layout/Header.astro`
@@ -102,7 +102,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T07: Crear componente de pie de página `Footer.astro`
+### - [x] T07: Crear componente de pie de página `Footer.astro`
 - **Descripción**: Maquetar componente de pie de página estático con semántica `<footer>`. Incluir navegación rápida a las secciones, mención de origen regional y el mensaje normativo permanente de compromiso con el turismo sostenible y la preservación ambiental.
 - **Archivos involucrados**:
   - `src/components/layout/Footer.astro`
@@ -114,7 +114,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T08: Crear componente reutilizable `SectionHeading.astro`
+### - [x] T08: Crear componente reutilizable `SectionHeading.astro`
 - **Descripción**: Crear componente de interfaz para encabezados de sección que encapsule el título `h2`, subtítulo descriptivo `p` y estilos visuales consistentes, garantizando jerarquía de encabezados accesible.
 - **Archivos involucrados**:
   - `src/components/ui/SectionHeading.astro`
