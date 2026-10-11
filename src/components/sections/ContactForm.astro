@@ -1,0 +1,117 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import destinations from '../../data/destinations.json';
+
+const names = (destinations as { name: string }[]).map((d) => d.name);
+const experiences = ['Naturaleza', 'Aventura', 'Cultural', 'Aguas'];
+
+const field =
+  'mt-1 block w-full rounded-lg border border-stone-400 bg-white px-3 py-2 text-stone-900 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emerald-600 aria-[invalid=true]:border-red-700 aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-red-700';
+const label = 'block text-sm font-semibold text-stone-900';
+const err = 'mt-1 hidden text-sm font-medium text-red-700';
+---
+
+<section id="contacto" class="scroll-mt-20 bg-stone-50 py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6">
+    <SectionHeading
+      title="Planea tu viaje"
+      subtitle="Cuéntanos qué buscas y te orientamos. Este formulario es demostrativo: no se envía ningún dato."
+    />
+
+    <p class="mt-6 rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
+      Canal demostrativo para planificadores de ecoturismo. Tu información no sale de esta página.
+    </p>
+
+    <p id="form-success" role="status" aria-live="polite" tabindex="-1" class="mt-6 hidden rounded-lg border border-emerald-700 bg-emerald-50 p-4 font-semibold text-emerald-900"></p>
+
+    <form id="contact-form" novalidate class="mt-6 space-y-5">
+      <div>
+        <label for="cf-name" class={label}>Nombre completo <span aria-hidden="true">*</span></label>
+        <input id="cf-name" name="name" type="text" required autocomplete="name" aria-describedby="cf-name-err" class={field} />
+        <p id="cf-name-err" class={err}>Escribe tu nombre completo.</p>
+      </div>
+
+      <div>
+        <label for="cf-email" class={label}>Correo electrónico <span aria-hidden="true">*</span></label>
+        <input id="cf-email" name="email" type="email" required autocomplete="email" aria-describedby="cf-email-err" class={field} />
+        <p id="cf-email-err" class={err}>Escribe un correo válido, por ejemplo nombre@correo.com.</p>
+      </div>
+
+      <div>
+        <label for="cf-dest" class={label}>Destino de interés <span aria-hidden="true">*</span></label>
+        <select id="cf-dest" name="destination" required aria-describedby="cf-dest-err" class={field}>
+          <option value="">Selecciona un destino</option>
+          {names.map((n) => <option value={n}>{n}</option>)}
+        </select>
+        <p id="cf-dest-err" class={err}>Elige un destino.</p>
+      </div>
+
+      <div>
+        <label for="cf-exp" class={label}>Tipo de experiencia <span aria-hidden="true">*</span></label>
+        <select id="cf-exp" name="experience" required aria-describedby="cf-exp-err" class={field}>
+          <option value="">Selecciona una experiencia</option>
+          {experiences.map((x) => <option value={x.toLowerCase()}>{x}</option>)}
+        </select>
+        <p id="cf-exp-err" class={err}>Elige un tipo de experiencia.</p>
+      </div>
+
+      <div>
+        <label for="cf-msg" class={label}>Mensaje o preguntas <span aria-hidden="true">*</span></label>
+        <textarea id="cf-msg" name="message" rows="4" required aria-describedby="cf-msg-err" class={field}></textarea>
+        <p id="cf-msg-err" class={err}>Cuéntanos qué quieres saber.</p>
+      </div>
+
+      <button
+        type="submit"
+        class="rounded-lg bg-emerald-800 px-8 py-3 text-base font-semibold text-white hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-300"
+      >
+        Enviar solicitud
+      </button>
+    </form>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const success = document.getElementById('form-success') as HTMLElement;
+  const fields = form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
+    'input, select, textarea'
+  );
+
+  function mark(el: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) {
+    const msg = document.getElementById(`${el.id}-err`);
+    const bad = !el.checkValidity();
+    el.setAttribute('aria-invalid', String(bad));
+    msg?.classList.toggle('hidden', !bad);
+    return !bad;
+  }
+
+  fields.forEach((el) => el.addEventListener('blur', () => mark(el)));
+  fields.forEach((el) =>
+    el.addEventListener('input', () => {
+      if (el.getAttribute('aria-invalid') === 'true') mark(el);
+    })
+  );
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let firstBad: HTMLElement | null = null;
+    fields.forEach((el) => {
+      if (!mark(el) && !firstBad) firstBad = el;
+    });
+    if (firstBad) {
+      success.classList.add('hidden');
+      (firstBad as HTMLElement).focus();
+      return;
+    }
+    // Simulado: no hay fetch ni XHR; los datos no salen de la página.
+    form.reset();
+    fields.forEach((el) => {
+      el.removeAttribute('aria-invalid');
+      document.getElementById(`${el.id}-err`)?.classList.add('hidden');
+    });
+    success.textContent = '¡Gracias! Recibimos tu solicitud (simulada). Pronto te orientaremos con tu viaje.';
+    success.classList.remove('hidden');
+    success.focus();
+  });
+</script>
