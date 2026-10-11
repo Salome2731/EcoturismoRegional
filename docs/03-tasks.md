@@ -273,7 +273,7 @@ Cada tarea incluye:
 
 ## Bloque 5: Componente Interactivo 1 - Galería Fotográfica y Visor Modal
 
-### - [x] T20: Crear componente de visor modal `GalleryModal.astro`
+### - [ ] T20: Crear componente de visor modal `GalleryModal.astro`
 - **Descripción**: Implementar el visor de imágenes ampliado en primer plano empleando el elemento nativo `<dialog id="gallery-dialog">` con `role="dialog"` y `aria-modal="true"`. Incluir contenedor para imagen ampliada, pie de foto descriptivo y botón de cierre visible. Programar script en cliente para gestionar apertura vía `dialog.showModal()`, cierre con botón, cierre al pulsar el backdrop y manejo nativo de tecla `Escape`.
 - **Archivos involucrados**:
   - `src/components/sections/GalleryModal.astro`
@@ -287,7 +287,7 @@ Cada tarea incluye:
 
 ---
 
-### - [x] T21: Crear sección de galería con filtrado `Gallery.astro`
+### - [ ] T21: Crear sección de galería con filtrado `Gallery.astro`
 - **Descripción**: Maquetar la sección `<section id="galeria" class="scroll-mt-20 ...">` con `SectionHeading.astro`. Renderizar en build las 12+ imágenes de `gallery.json` optimizadas con `<Image />` de Astro (resolviendo rutas con `import.meta.glob`). Crear barra de botones de filtro (`Todos`, `Naturaleza`, `Aventura`, `Cultural`, `Aguas`). Programar script Vanilla JS que conmute la clase `hidden` en el DOM según el atributo `data-category` en menos de 300 ms y despache la apertura del visor en `GalleryModal.astro`.
 - **Archivos involucrados**:
   - `src/components/sections/Gallery.astro`

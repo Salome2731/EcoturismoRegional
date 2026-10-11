@@ -1,104 +1,58 @@
 ---
 ---
 
-<!--
-  Apertura del visor: despachar en document el evento personalizado "gallery:open"
-  con detail { src, alt, title, description, location, category, trigger? }.
-  Gallery.astro envía la URL ya optimizada (getImage) en detail.src.
--->
 <dialog
   id="gallery-dialog"
   aria-labelledby="gallery-dialog-title"
-  class="fixed inset-0 z-[100] m-0 h-full max-h-none w-full max-w-none bg-transparent p-4 backdrop:bg-black/80 open:flex open:items-center open:justify-center sm:p-6"
+  class="m-auto w-[calc(100%-2rem)] max-w-4xl rounded-xl bg-white p-0 shadow-2xl backdrop:bg-black/80"
 >
-  <div class="relative w-full max-w-4xl rounded-xl border border-stone-700 bg-stone-900 p-4 text-stone-100 shadow-2xl sm:p-6">
+  <div class="relative p-4 sm:p-6">
     <button
-      id="gallery-dialog-close"
       type="button"
+      id="gallery-dialog-close"
       aria-label="Cerrar visor"
-      class="absolute right-3 top-3 inline-flex items-center gap-2 rounded-md bg-stone-800 px-3 py-2 text-sm font-semibold text-white hover:bg-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
+      class="absolute right-3 top-3 z-10 rounded-full bg-stone-900 px-3 py-1 text-sm font-semibold text-white hover:bg-stone-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-300"
     >
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-      Cerrar
+      ✕ Cerrar
     </button>
-
-    <figure class="mt-8">
-      <img
-        id="gallery-dialog-img"
-        alt=""
-        class="mx-auto h-auto max-h-[80vh] w-full max-w-full object-contain"
-      />
-      <figcaption class="mt-4 space-y-2 pr-16">
-        <h3 id="gallery-dialog-title" class="text-xl font-bold text-white"></h3>
-        <p id="gallery-dialog-meta" class="text-sm text-stone-300"></p>
-        <p id="gallery-dialog-description" class="text-sm leading-relaxed text-stone-200"></p>
-      </figcaption>
-    </figure>
+    <img
+      id="gallery-dialog-img"
+      src=""
+      alt=""
+      class="mx-auto max-h-[70vh] w-full rounded-lg object-contain"
+    />
+    <div class="mt-4">
+      <h3 id="gallery-dialog-title" class="text-xl font-bold text-stone-900"></h3>
+      <p id="gallery-dialog-meta" class="mt-1 text-sm font-medium text-emerald-800"></p>
+      <p id="gallery-dialog-desc" class="mt-2 text-sm text-stone-700"></p>
+    </div>
   </div>
 </dialog>
 
 <script>
-  type GalleryOpenDetail = {
-    src: string;
-    alt: string;
-    title: string;
-    description: string;
-    location: string;
-    category: string;
-    trigger?: HTMLElement | null;
-  }
+  const dialog = document.getElementById('gallery-dialog') as HTMLDialogElement;
+  const img = document.getElementById('gallery-dialog-img') as HTMLImageElement;
+  const title = document.getElementById('gallery-dialog-title')!;
+  const meta = document.getElementById('gallery-dialog-meta')!;
+  const desc = document.getElementById('gallery-dialog-desc')!;
+  const closeBtn = document.getElementById('gallery-dialog-close')!;
+  let opener: HTMLElement | null = null;
 
-  const dialog = document.getElementById('gallery-dialog') as HTMLDialogElement | null;
-  const image = document.getElementById('gallery-dialog-img') as HTMLImageElement | null;
-  const titleEl = document.getElementById('gallery-dialog-title');
-  const metaEl = document.getElementById('gallery-dialog-meta');
-  const descriptionEl = document.getElementById('gallery-dialog-description');
-  const closeBtn = document.getElementById('gallery-dialog-close');
-
-  let lastTrigger: HTMLElement | null = null;
-
-  function fillAndOpen(detail: GalleryOpenDetail) {
-    if (!dialog || !image || !titleEl || !metaEl || !descriptionEl) return;
-
-    lastTrigger =
-      detail.trigger instanceof HTMLElement
-        ? detail.trigger
-        : document.activeElement instanceof HTMLElement
-          ? document.activeElement
-          : null;
-
-    image.src = detail.src;
-    image.alt = detail.alt;
-    titleEl.textContent = detail.title;
-    metaEl.textContent = `${detail.location} · ${detail.category}`;
-    descriptionEl.textContent = detail.description;
+  // Gallery.astro dispara: window.dispatchEvent(new CustomEvent('gallery:open', { detail }))
+  window.addEventListener('gallery:open', (e) => {
+    const d = (e as CustomEvent).detail;
+    opener = d.opener as HTMLElement;
+    img.src = d.src;
+    img.alt = d.alt;
+    title.textContent = d.title;
+    meta.textContent = `${d.location} · ${d.category}`;
+    desc.textContent = d.description;
     dialog.showModal();
-  }
-
-  document.addEventListener('gallery:open', (event: Event) => {
-    const custom = event as CustomEvent<GalleryOpenDetail>;
-    if (!custom.detail?.src) return;
-    fillAndOpen(custom.detail);
   });
 
-  closeBtn?.addEventListener('click', () => {
-    dialog?.close();
+  closeBtn.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
   });
-
-  dialog?.addEventListener('click', (event) => {
-    if (event.target === dialog) {
-      dialog.close();
-    }
-  });
-
-  dialog?.addEventListener('close', () => {
-    if (image) {
-      image.removeAttribute('src');
-      image.alt = '';
-    }
-    lastTrigger?.focus();
-    lastTrigger = null;
-  });
+  dialog.addEventListener('close', () => opener?.focus());
 </script>

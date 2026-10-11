@@ -1,0 +1,238 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import routesData from '../../data/routes.json';
+import type { SuggestedRoute } from '../../types';
+
+const routes = routesData as SuggestedRoute[];
+
+const norm = (s: string) =>
+  s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+
+// Esquema ilustrativo (no a escala). Norte arriba, Occidente abajo.
+const positions: Record<string, { x: number; y: number; zone: 'Norte' | 'Occidente' }> = {
+  'Toledo': { x: 330, y: 110, zone: 'Norte' },
+  'San José de la Montaña': { x: 500, y: 165, zone: 'Norte' },
+  'Ituango': { x: 670, y: 90, zone: 'Norte' },
+  'Santa Fe de Antioquia': { x: 270, y: 330, zone: 'Occidente' },
+  'San Jerónimo': { x: 440, y: 385, zone: 'Occidente' },
+  'Ebéjico': { x: 620, y: 440, zone: 'Occidente' },
+  'Abriaquí': { x: 120, y: 450, zone: 'Occidente' },
+  'Peque': { x: 270, y: 530, zone: 'Occidente' },
+};
+const byKey = Object.fromEntries(
+  Object.entries(positions).map(([name, p]) => [norm(name), { name, ...p }])
+);
+
+const styles = [
+  { color: '#b45309', dash: '' },
+  { color: '#0369a1', dash: '14 8' },
+  { color: '#047857', dash: '2 9' },
+];
+
+const lines = routes.map((route, i) => {
+  const pts = route.stops.map((stop) => {
+    const p = byKey[norm(stop)];
+    if (!p) throw new Error(`Parada sin posición en el mapa: "${stop}" (ruta ${route.id})`);
+    return p;
+  });
+  return {
+    route,
+    style: styles[i % styles.length],
+    d: pts.map((p, k) => `${k === 0 ? 'M' : 'L'}${p.x} ${p.y}`).join(' '),
+  };
+});
+
+const nodes = Object.values(byKey).map((n) => {
+  const owner = routes.find((r) => r.stops.some((s) => norm(s) === norm(n.name)));
+  return { ...n, key: norm(n.name), owner };
+});
+---
+
+<section id="rutas" class="scroll-mt-20 bg-white py-16 sm:py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <SectionHeading
+      title="Rutas sugeridas"
+      subtitle="Tres circuitos para recorrer municipios vecinos con calma. Elige uno y mira su detalle."
+    />
+
+    <div id="route-map" class="mt-12 grid gap-8 lg:grid-cols-[2fr_1fr]">
+      <div>
+        <svg
+          viewBox="0 0 800 600"
+          class="h-auto w-full rounded-xl border border-stone-200"
+          role="group"
+          aria-label="Esquema ilustrativo de los ocho municipios y las tres rutas sugeridas"
+        >
+          <rect x="0" y="0" width="800" height="230" fill="#ecfdf5"></rect>
+          <rect x="0" y="230" width="800" height="370" fill="#fffbeb"></rect>
+          <text x="20" y="36" font-size="22" font-weight="700" fill="#065f46">NORTE</text>
+          <text x="20" y="266" font-size="22" font-weight="700" fill="#92400e">OCCIDENTE</text>
+
+          {lines.map(({ route, style, d }) => (
+            <g>
+              <path
+                class="route-line"
+                data-route-id={route.id}
+                d={d}
+                fill="none"
+                stroke={style.color}
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-dasharray={style.dash || undefined}
+              ></path>
+              <path
+                class="route-hit"
+                data-route-id={route.id}
+                d={d}
+                fill="none"
+                stroke="transparent"
+                stroke-width="22"
+              ></path>
+            </g>
+          ))}
+
+          {nodes.map((n) => (
+            <g
+              class="node"
+              role="button"
+              tabindex="0"
+              data-key={n.key}
+              data-route-id={n.owner?.id ?? ''}
+              aria-label={n.owner ? `Municipio ${n.name}, ver ruta ${n.owner.name}` : `Municipio ${n.name}`}
+            >
+              <circle cx={n.x} cy={n.y} r="13" fill="#ffffff" stroke="#44403c" stroke-width="3"></circle>
+              <text
+                x={n.x}
+                y={n.y + 36}
+                text-anchor="middle"
+                font-size="19"
+                font-weight="600"
+                fill="#1c1917"
+                stroke="#ffffff"
+                stroke-width="5"
+                paint-order="stroke"
+              >{n.name}</text>
+            </g>
+          ))}
+        </svg>
+        <p class="mt-2 text-sm text-stone-600">Esquema ilustrativo, no a escala.</p>
+      </div>
+
+      <div class="flex flex-col gap-6">
+        <div role="group" aria-label="Elegir ruta sugerida" class="flex flex-col gap-3">
+          {lines.map(({ route, style }) => (
+            <button
+              type="button"
+              data-route-id={route.id}
+              aria-pressed="false"
+              class="flex items-center gap-3 rounded-lg border border-stone-300 bg-white px-4 py-3 text-left text-sm font-semibold text-stone-900 transition hover:bg-stone-100 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emerald-600 aria-pressed:border-emerald-800 aria-pressed:bg-emerald-800 aria-pressed:text-white"
+            >
+              <svg width="40" height="8" viewBox="0 0 40 8" aria-hidden="true" class="shrink-0 rounded bg-white px-1">
+                <line x1="2" y1="4" x2="38" y2="4" stroke={style.color} stroke-width="4" stroke-linecap="round" stroke-dasharray={style.dash || undefined}></line>
+              </svg>
+              {route.name}
+            </button>
+          ))}
+        </div>
+
+        <div id="route-panel" role="region" aria-live="polite" aria-label="Detalle de la ruta" class="rounded-xl border border-stone-200 bg-stone-50 p-5 text-sm text-stone-800">
+          <p>Elige una ruta para ver su detalle.</p>
+        </div>
+      </div>
+    </div>
+
+    <script type="application/json" id="routes-data" set:html={JSON.stringify(routes)} />
+  </div>
+</section>
+
+<style>
+  .route-line { transition: opacity 0.2s, stroke-width 0.2s; }
+  .route-hit { cursor: pointer; }
+  .node { cursor: pointer; outline: none; }
+  .node circle { transition: fill 0.2s; }
+  .node:focus-visible circle { stroke: #1d4ed8; stroke-width: 6; }
+  #route-map[data-active] .route-line { opacity: 0.25; }
+  #route-map[data-active] .route-line[data-on='true'] { opacity: 1; stroke-width: 9; }
+  .node[data-on='true'] circle { fill: #fde68a; stroke-width: 5; }
+</style>
+
+<script>
+  type Route = {
+    id: string; name: string; zone: string; approximateDuration: string;
+    roadType: string; effortLevel: string; description: string; stops: string[];
+  };
+  const norm = (s: string) =>
+    s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+
+  const root = document.getElementById('route-map') as HTMLElement;
+  const panel = document.getElementById('route-panel') as HTMLElement;
+  const routes: Route[] = JSON.parse(document.getElementById('routes-data')!.textContent || '[]');
+  const buttons = root.querySelectorAll<HTMLButtonElement>('button[data-route-id]');
+  const lineEls = root.querySelectorAll<SVGPathElement>('.route-line');
+  const nodeEls = root.querySelectorAll<SVGGElement>('.node');
+
+  const row = (label: string, value: string) => {
+    const p = document.createElement('p');
+    const b = document.createElement('span');
+    b.className = 'font-semibold text-stone-900';
+    b.textContent = `${label}: `;
+    p.append(b, document.createTextNode(value));
+    return p;
+  };
+
+  function renderPanel(r: Route) {
+    panel.replaceChildren();
+    const h = document.createElement('h3');
+    h.className = 'text-lg font-bold text-stone-900';
+    h.textContent = r.name;
+    const wrap = document.createElement('div');
+    wrap.className = 'mt-3 space-y-2';
+    const desc = document.createElement('p');
+    desc.textContent = r.description;
+    const ol = document.createElement('ol');
+    ol.className = 'list-decimal space-y-1 pl-5';
+    r.stops.forEach((s) => {
+      const li = document.createElement('li');
+      li.textContent = s;
+      ol.append(li);
+    });
+    const stopsTitle = document.createElement('p');
+    stopsTitle.className = 'font-semibold text-stone-900';
+    stopsTitle.textContent = 'Paradas recomendadas';
+    wrap.append(
+      row('Zona', r.zone),
+      row('Duración aproximada', r.approximateDuration),
+      row('Tipo de camino', r.roadType),
+      row('Nivel de esfuerzo', r.effortLevel),
+      desc, stopsTitle, ol
+    );
+    panel.append(h, wrap);
+  }
+
+  function setActiveRoute(id: string) {
+    const route = routes.find((r) => r.id === id);
+    if (!route) return;
+    root.dataset.active = id;
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.routeId === id)));
+    lineEls.forEach((l) => (l.dataset.on = String(l.dataset.routeId === id)));
+    const keys = route.stops.map(norm);
+    nodeEls.forEach((n) => (n.dataset.on = String(keys.includes(n.dataset.key || ''))));
+    renderPanel(route);
+  }
+
+  buttons.forEach((b) => b.addEventListener('click', () => setActiveRoute(b.dataset.routeId || '')));
+  root.querySelectorAll<SVGPathElement>('.route-hit').forEach((p) =>
+    p.addEventListener('click', () => setActiveRoute(p.dataset.routeId || ''))
+  );
+  nodeEls.forEach((n) => {
+    const go = () => n.dataset.routeId && setActiveRoute(n.dataset.routeId);
+    n.addEventListener('click', go);
+    n.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        go();
+      }
+    });
+  });
+</script>

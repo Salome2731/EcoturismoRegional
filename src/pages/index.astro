@@ -6,6 +6,7 @@ import Hero from '../components/sections/Hero.astro';
 import Destinations from '../components/sections/Destinations.astro';
 import Gallery from '../components/sections/Gallery.astro';
 import GalleryModal from '../components/sections/GalleryModal.astro';
+import RouteMap from '../components/sections/RouteMap.astro';
 ---
 
 <BaseLayout>
@@ -14,13 +15,12 @@ import GalleryModal from '../components/sections/GalleryModal.astro';
     <Hero />
     <Destinations />
     <Gallery />
-    <section id="rutas" class="scroll-mt-20 py-16 text-center text-stone-600">
-      <p>Espacio reservado para el mapa de rutas (T24).</p>
-    </section>
+    <RouteMap />
+
     <section id="contacto" class="scroll-mt-20 py-16 text-center text-stone-600">
       <p>Espacio reservado para el formulario de contacto (T28).</p>
     </section>
   </main>
-  <Footer />
   <GalleryModal />
+  <Footer />
 </BaseLayout>

@@ -2,7 +2,7 @@
 import { Image, getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import SectionHeading from '../ui/SectionHeading.astro';
-import gallery from '../../data/gallery.json';
+import galleryData from '../../data/gallery.json';
 import type { GalleryItem } from '../../types';
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
@@ -10,183 +10,114 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true }
 );
 
-const categoryLabels: Record<GalleryItem['category'], string> = {
-  naturaleza: 'Naturaleza',
-  aventura: 'Aventura',
-  cultural: 'Cultural',
-  aguas: 'Aguas',
-};
-
 const filters = [
   { id: 'todos', label: 'Todos' },
   { id: 'naturaleza', label: 'Naturaleza' },
   { id: 'aventura', label: 'Aventura' },
   { id: 'cultural', label: 'Cultural' },
   { id: 'aguas', label: 'Aguas' },
-] as const;
+];
 
 const items = await Promise.all(
-  (gallery as GalleryItem[]).map(async (item) => {
+  (galleryData as GalleryItem[]).map(async (item) => {
     const key = `/src/assets/images/gallery/${item.image}`;
-    const imageMetadata = images[key]?.default;
-    if (!imageMetadata) {
-      throw new Error(`Imagen no encontrada para ${item.title}: ${key}`);
-    }
-
-    const lightbox = await getImage({
-      src: imageMetadata,
-      width: imageMetadata.width,
-      format: 'webp',
-    });
-
-    return {
-      item,
-      imageMetadata,
-      lightboxSrc: lightbox.src,
-      categoryLabel: categoryLabels[item.category],
-    };
+    const meta = images[key]?.default;
+    if (!meta) throw new Error(`Imagen no encontrada para ${item.id}: ${key}`);
+    const large = await getImage({ src: meta, width: 1600, format: 'webp' });
+    return { item, meta, largeSrc: large.src };
   })
 );
 ---
 
-<section id="galeria" class="scroll-mt-20 bg-white py-16 sm:py-20">
+<section id="galeria" class="scroll-mt-20 bg-stone-50 py-16 sm:py-20">
   <div class="mx-auto max-w-7xl px-4 sm:px-6">
     <SectionHeading
-      title="Galería de paisajes y oficios"
-      subtitle="Doce miradas del Occidente y el Norte: bosque, camino, patrimonio y agua. Filtra por tema y abre cada foto para verla en grande."
+      title="Galería de paisajes"
+      subtitle="Naturaleza, aventura, cultura y agua. Filtra por lo que más te llame y mira cada foto en grande."
     />
 
-    <div
-      id="gallery-filters"
-      role="group"
-      aria-label="Filtrar galería por categoría"
-      class="flex flex-wrap justify-center gap-2 sm:gap-3"
-    >
-      {filters.map((filter, index) => (
+    <div role="group" aria-label="Filtrar galería por categoría" id="gallery-filters" class="mt-10 flex flex-wrap justify-center gap-3">
+      {filters.map((f) => (
         <button
           type="button"
-          data-filter={filter.id}
-          aria-pressed={index === 0 ? 'true' : 'false'}
-          class:list={[
-            'rounded-full border px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600',
-            index === 0
-              ? 'border-emerald-700 bg-emerald-700 text-white'
-              : 'border-stone-400 bg-white text-stone-800 hover:border-emerald-600 hover:text-emerald-800',
-          ]}
+          data-filter={f.id}
+          aria-pressed={f.id === 'todos' ? 'true' : 'false'}
+          class="rounded-full border border-stone-400 bg-white px-5 py-2 text-sm font-semibold text-stone-900 transition hover:bg-stone-100 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emerald-600 aria-pressed:border-emerald-800 aria-pressed:bg-emerald-800 aria-pressed:text-white"
         >
-          {filter.label}
+          {f.label}
         </button>
       ))}
     </div>
 
-    <p id="gallery-status" class="sr-only" role="status" aria-live="polite">
-      Mostrando {items.length} fotos de la categoría Todos
-    </p>
+    <p id="gallery-status" role="status" aria-live="polite" class="sr-only"></p>
 
-    <div
-      id="gallery-grid"
-      class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-    >
-      {items.map(({ item, imageMetadata, lightboxSrc, categoryLabel }) => (
+    <div id="gallery-grid" class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {items.map(({ item, meta, largeSrc }) => (
         <button
           type="button"
-          class="gallery-item group overflow-hidden rounded-xl border border-stone-200 bg-stone-50 text-left shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+          class="gallery-item group overflow-hidden rounded-xl border border-stone-200 bg-white text-left shadow-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emerald-600"
           data-category={item.category}
+          data-src={largeSrc}
+          data-alt={item.alt}
           data-title={item.title}
           data-description={item.description}
           data-location={item.location}
-          data-category-label={categoryLabel}
-          data-alt={item.alt}
-          data-full-src={lightboxSrc}
         >
           <Image
-            src={imageMetadata}
+            src={meta}
             alt={item.alt}
-            width={800}
-            height={450}
+            width={640}
+            height={360}
             loading="lazy"
-            class="aspect-video w-full object-cover transition group-hover:brightness-95"
+            class="aspect-video w-full object-cover transition group-hover:scale-105"
           />
-          <div class="space-y-1 p-4">
-            <h3 class="text-base font-bold text-stone-900">{item.title}</h3>
-            <p class="text-sm text-stone-700">{item.location}</p>
-            <p class="text-xs font-semibold uppercase tracking-wide text-emerald-800">{categoryLabel}</p>
-          </div>
+          <span class="block p-3">
+            <span class="block text-sm font-bold text-stone-900">{item.title}</span>
+            <span class="block text-xs text-stone-700">{item.location} · {item.category}</span>
+          </span>
         </button>
       ))}
     </div>
-
-    <p id="gallery-empty" class="mt-10 hidden text-center text-stone-700">
-      No hay fotografías en esta categoría por ahora.
-    </p>
   </div>
 </section>
 
 <script>
-  const FILTER_ACTIVE =
-    'rounded-full border px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 border-emerald-700 bg-emerald-700 text-white';
-  const FILTER_IDLE =
-    'rounded-full border px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 border-stone-400 bg-white text-stone-800 hover:border-emerald-600 hover:text-emerald-800';
+  const filterBar = document.getElementById('gallery-filters')!;
+  const grid = document.getElementById('gallery-grid')!;
+  const status = document.getElementById('gallery-status')!;
+  const cards = grid.querySelectorAll<HTMLButtonElement>('.gallery-item');
 
-  const filterGroup = document.getElementById('gallery-filters');
-  const grid = document.getElementById('gallery-grid');
-  const status = document.getElementById('gallery-status');
-  const empty = document.getElementById('gallery-empty');
-  const cards = () => Array.from(document.querySelectorAll<HTMLButtonElement>('.gallery-item'));
-
-  const filterLabels: Record<string, string> = {
-    todos: 'Todos',
-    naturaleza: 'Naturaleza',
-    aventura: 'Aventura',
-    cultural: 'Cultural',
-    aguas: 'Aguas',
-  };
-
-  function applyFilter(filterId: string) {
-    const buttons = filterGroup?.querySelectorAll<HTMLButtonElement>('[data-filter]');
-    buttons?.forEach((button) => {
-      const isActive = button.dataset.filter === filterId;
-      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-      button.className = isActive ? FILTER_ACTIVE : FILTER_IDLE;
-    });
-
-    let visible = 0;
-    cards().forEach((card) => {
-      const match = filterId === 'todos' || card.dataset.category === filterId;
-      card.classList.toggle('hidden', !match);
-      if (match) visible += 1;
-    });
-
-    const label = filterLabels[filterId] ?? filterId;
-    if (status) {
-      status.textContent = `Mostrando ${visible} fotos de la categoría ${label}`;
-    }
-
-    empty?.classList.toggle('hidden', visible !== 0);
-  }
-
-  filterGroup?.addEventListener('click', (event) => {
-    const target = (event.target as HTMLElement | null)?.closest('[data-filter]');
-    if (!(target instanceof HTMLButtonElement) || !target.dataset.filter) return;
-    applyFilter(target.dataset.filter);
-  });
-
-  grid?.addEventListener('click', (event) => {
-    const card = (event.target as HTMLElement | null)?.closest('.gallery-item');
-    if (!(card instanceof HTMLButtonElement)) return;
-
-    document.dispatchEvent(
-      new CustomEvent('gallery:open', {
-        detail: {
-          src: card.dataset.fullSrc ?? '',
-          alt: card.dataset.alt ?? '',
-          title: card.dataset.title ?? '',
-          description: card.dataset.description ?? '',
-          location: card.dataset.location ?? '',
-          category: card.dataset.categoryLabel ?? '',
-          trigger: card,
-        },
-      })
+  filterBar.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('button[data-filter]');
+    if (!btn) return;
+    const filter = btn.dataset.filter!;
+    filterBar.querySelectorAll('button').forEach((b) =>
+      b.setAttribute('aria-pressed', String(b === btn))
     );
+    let shown = 0;
+    cards.forEach((c) => {
+      const match = filter === 'todos' || c.dataset.category === filter;
+      c.classList.toggle('hidden', !match);
+      if (match) shown++;
+    });
+    status.textContent = `Mostrando ${shown} fotos de la categoría ${btn.textContent?.trim()}`;
   });
+
+  cards.forEach((c) =>
+    c.addEventListener('click', () => {
+      window.dispatchEvent(
+        new CustomEvent('gallery:open', {
+          detail: {
+            opener: c,
+            src: c.dataset.src,
+            alt: c.dataset.alt,
+            title: c.dataset.title,
+            description: c.dataset.description,
+            location: c.dataset.location,
+            category: c.dataset.category,
+          },
+        })
+      );
+    })
+  );
 </script>
