@@ -209,7 +209,7 @@ Cada tarea incluye:
 
 ## Bloque 4: Componentes Estáticos (Portada y Catálogo de Destinos)
 
-### - [ ] T15: Crear componente de portada `Hero.astro`
+### - [x] T15: Crear componente de portada `Hero.astro`
 - **Descripción**: Maquetar la sección principal Hero con fondo optimizado mediante `<Image />` de `astro:assets` (`loading="eager"`), overlay oscuro para garantizar contraste de texto > 4.5:1, título `<h1>` inspirador sobre biodiversidad regional, párrafo explicativo y botón CTA con ancla `<a href="#destinos">`. Incluir clase `scroll-mt-20` en la sección receptora.
 - **Archivos involucrados**:
   - `src/components/sections/Hero.astro`
@@ -221,7 +221,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T16: Crear tarjeta de destino `DestinationCard.astro`
+### - [x] T16: Crear tarjeta de destino `DestinationCard.astro`
 - **Descripción**: Implementar la ficha individual de destino. Mostrar nombre, fotografía procesada con `<Image />`, clima, nivel de dificultad y actividades. Aplicar diferenciación visual distintiva entre subregiones (paleta ámbar/terracota para Occidente y esmeralda/bosque para Norte). Implementar detalle extendido mediante acordeón semántico nativo `<details>` y `<summary>` de HTML5 sin JavaScript.
 - **Archivos involucrados**:
   - `src/components/sections/DestinationCard.astro`
@@ -233,7 +233,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T17: Crear contenedor del catálogo `Destinations.astro`
+### - [x] T17: Crear contenedor del catálogo `Destinations.astro`
 - **Descripción**: Implementar la sección del catálogo con semántica `<section id="destinos" class="scroll-mt-20 ...">`, integrar `SectionHeading.astro`, cargar de forma estática `destinations.json`, resolver las imágenes con `import.meta.glob` según el plan técnico y renderizar la cuadrícula responsive de 8 tarjetas usando `DestinationCard.astro`.
 - **Archivos involucrados**:
   - `src/components/sections/Destinations.astro`
@@ -245,7 +245,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T18: Ensamblar Hero y Catálogo en la página principal `src/pages/index.astro`
+### - [x] T18: Ensamblar Hero y Catálogo en la página principal `src/pages/index.astro`
 - **Descripción**: Configurar la página principal `src/pages/index.astro` bajo `BaseLayout.astro`, integrando `Header.astro`, `Hero.astro`, `Destinations.astro` y `Footer.astro`.
 - **Archivos involucrados**:
   - `src/pages/index.astro`

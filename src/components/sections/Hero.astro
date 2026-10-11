@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+import heroBg from '../../assets/images/hero-bg.webp';
+---
+
+<section class="relative isolate flex min-h-[85vh] items-center justify-center overflow-hidden pt-16">
+  <Image
+    src={heroBg}
+    alt=""
+    aria-hidden="true"
+    loading="eager"
+    fetchpriority="high"
+    class="absolute inset-0 -z-20 h-full w-full object-cover"
+  />
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-stone-950/70 via-stone-950/60 to-stone-950/80"></div>
+
+  <div class="mx-auto w-full max-w-4xl px-4 py-20 text-center sm:px-6">
+    <p class="mb-4 inline-block rounded-full border border-emerald-300/60 bg-emerald-950/60 px-4 py-1 text-sm font-medium text-emerald-100">
+      Occidente y Norte de Antioquia
+    </p>
+    <h1 class="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+      Descubre la naturaleza viva de Antioquia
+    </h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-stone-100 sm:text-xl">
+      Municipios con cañones, bosques, ríos y patrimonio. Viaja con respeto, cuida lo que visitas y deja huella solo en el camino.
+    </p>
+    <a
+      href="#destinos"
+      class="mt-10 inline-block rounded-lg bg-emerald-600 px-8 py-3 text-lg font-semibold text-white shadow-lg transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-300"
+    >
+      Explorar destinos
+    </a>
+  </div>
+</section>

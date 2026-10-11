@@ -1,0 +1,35 @@
+---
+import type { ImageMetadata } from 'astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import DestinationCard from './DestinationCard.astro';
+import destinations from '../../data/destinations.json';
+import type { Destination } from '../../types';
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/images/destinations/*.webp',
+  { eager: true }
+);
+
+const items = (destinations as Destination[]).map((destination) => {
+  const key = `/src/assets/images/destinations/${destination.image}`;
+  const imageMetadata = images[key]?.default;
+  if (!imageMetadata) {
+    throw new Error(`Imagen no encontrada para ${destination.name}: ${key}`);
+  }
+  return { destination, imageMetadata };
+});
+---
+
+<section id="destinos" class="scroll-mt-20 bg-stone-50 py-16 sm:py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <SectionHeading
+      title="Destinos del Occidente y el Norte"
+      subtitle="Ocho municipios para recorrer con calma, conocer su gente y cuidar su entorno."
+    />
+    <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {items.map(({ destination, imageMetadata }) => (
+        <DestinationCard destination={destination} imageMetadata={imageMetadata} />
+      ))}
+    </div>
+  </div>
+</section>
