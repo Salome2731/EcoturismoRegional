@@ -177,7 +177,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T13: Crear placeholders de imágenes locales y archivo `docs/CREDITS.md`
+### - [X] T13: Crear placeholders de imágenes locales y archivo `docs/CREDITS.md`
 - **Descripción**: Crear las imágenes locales (o placeholders de aspecto correcto: 16:9 para hero/galería, 4:3 para destinos) en `src/assets/images/destinations/`, `src/assets/images/gallery/` y `src/assets/images/hero-bg.webp`. Crear el documento `docs/CREDITS.md` con el registro de fuentes, autores y licencias de cada recurso gráfico según la decisión técnica del plan.
 - **Archivos involucrados**:
   - `src/assets/images/hero-bg.webp` (o formato soportado por Astro)
