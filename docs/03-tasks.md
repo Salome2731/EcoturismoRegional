@@ -125,7 +125,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T09: Git Checkpoint 2 - Layout base, navegación y encabezados
+### - [x] T09: Git Checkpoint 2 - Layout base, navegación y encabezados
 - **Descripción**: Crear commit de git con la maquetación del layout base, header responsivo, footer informativo y componente SectionHeading.
 - **Archivos involucrados**:
   - `src/layouts/BaseLayout.astro`
@@ -192,7 +192,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T14: Git Checkpoint 3 - Datos estructurados JSON y assets locales
+### - [x] T14: Git Checkpoint 3 - Datos estructurados JSON y assets locales
 - **Descripción**: Crear commit de git con los archivos de datos JSON (`destinations.json`, `gallery.json`, `routes.json`), assets locales de imágenes y documento de créditos.
 - **Archivos involucrados**:
   - `src/data/destinations.json`
@@ -257,7 +257,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T19: Git Checkpoint 4 - Componentes estáticos de Hero y Catálogo
+### - [x] T19: Git Checkpoint 4 - Componentes estáticos de Hero y Catálogo
 - **Descripción**: Crear commit de git con la implementación de Hero, DestinationCard, Destinations y su integración en `index.astro`.
 - **Archivos involucrados**:
   - `src/components/sections/Hero.astro`
@@ -273,7 +273,7 @@ Cada tarea incluye:
 
 ## Bloque 5: Componente Interactivo 1 - Galería Fotográfica y Visor Modal
 
-### - [ ] T20: Crear componente de visor modal `GalleryModal.astro`
+### - [X] T20: Crear componente de visor modal `GalleryModal.astro`
 - **Descripción**: Implementar el visor de imágenes ampliado en primer plano empleando el elemento nativo `<dialog id="gallery-dialog">` con `role="dialog"` y `aria-modal="true"`. Incluir contenedor para imagen ampliada, pie de foto descriptivo y botón de cierre visible. Programar script en cliente para gestionar apertura vía `dialog.showModal()`, cierre con botón, cierre al pulsar el backdrop y manejo nativo de tecla `Escape`.
 - **Archivos involucrados**:
   - `src/components/sections/GalleryModal.astro`
@@ -287,7 +287,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T21: Crear sección de galería con filtrado `Gallery.astro`
+### - [X] T21: Crear sección de galería con filtrado `Gallery.astro`
 - **Descripción**: Maquetar la sección `<section id="galeria" class="scroll-mt-20 ...">` con `SectionHeading.astro`. Renderizar en build las 12+ imágenes de `gallery.json` optimizadas con `<Image />` de Astro (resolviendo rutas con `import.meta.glob`). Crear barra de botones de filtro (`Todos`, `Naturaleza`, `Aventura`, `Cultural`, `Aguas`). Programar script Vanilla JS que conmute la clase `hidden` en el DOM según el atributo `data-category` en menos de 300 ms y despache la apertura del visor en `GalleryModal.astro`.
 - **Archivos involucrados**:
   - `src/components/sections/Gallery.astro`
@@ -301,7 +301,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T22: Integrar Galería y Modal en `src/pages/index.astro`
+### - [X] T22: Integrar Galería y Modal en `src/pages/index.astro`
 - **Descripción**: Importar e incrustar `Gallery.astro` y `GalleryModal.astro` en la página principal `src/pages/index.astro` inmediatamente después del catálogo de destinos.
 - **Archivos involucrados**:
   - `src/pages/index.astro`
@@ -313,7 +313,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T23: Git Checkpoint 5 - Galería interactiva y visor modal
+### - [X] T23: Git Checkpoint 5 - Galería interactiva y visor modal
 - **Descripción**: Crear commit de git con la implementación de `GalleryModal.astro`, `Gallery.astro` y su integración en la página principal.
 - **Archivos involucrados**:
   - `src/components/sections/GalleryModal.astro`
@@ -328,7 +328,7 @@ Cada tarea incluye:
 
 ## Bloque 6: Componente Interactivo 2 - Mapa Esquemático de Rutas
 
-### - [ ] T24: Diseñar SVG vectorial responsivo del mapa en `RouteMap.astro`
+### - [X] T24: Diseñar SVG vectorial responsivo del mapa en `RouteMap.astro`
 - **Descripción**: Crear la sección `<section id="rutas" class="scroll-mt-20 ...">` con `SectionHeading.astro`. Diseñar un esquema vectorial SVG embebido (`viewBox="0 0 800 600"`, responsivo) que represente la distribución territorial de Occidente y Norte, con trazados `<path>` para las 3 rutas sugeridas (Sol y Patrimonio, Bosques y Cañones, Aguas del Norte) y nodos circulares `<g>` para los 8 municipios.
 - **Archivos involucrados**:
   - `src/components/sections/RouteMap.astro`
@@ -341,7 +341,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T25: Implementar panel reactivo y botonera accesible en `RouteMap.astro`
+### - [X] T25: Implementar panel reactivo y botonera accesible en `RouteMap.astro`
 - **Descripción**: Integrar una botonera semántica visible adyacente al mapa con `<button>` para cada ruta (`Ruta Sol y Patrimonio`, `Ruta Bosques y Cañones`, `Ruta Aguas del Norte`) y un panel informativo con `role="region"` y `aria-live="polite"`. Programar script Vanilla JS que sincronice la selección (clic o teclado) entre los botones y el SVG, resaltando el trazado activo y actualizando el panel con tiempo aproximado, paradas recomendadas, tipo de vía y nivel de esfuerzo desde `routes.json`.
 - **Archivos involucrados**:
   - `src/components/sections/RouteMap.astro`
@@ -354,7 +354,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T26: Integrar sección de mapa en `src/pages/index.astro`
+### - [X] T26: Integrar sección de mapa en `src/pages/index.astro`
 - **Descripción**: Incorporar `RouteMap.astro` en la página principal `src/pages/index.astro` a continuación de la galería.
 - **Archivos involucrados**:
   - `src/pages/index.astro`
@@ -366,7 +366,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T27: Git Checkpoint 6 - Mapa esquemático interactivo de rutas
+### - [X] T27: Git Checkpoint 6 - Mapa esquemático interactivo de rutas
 - **Descripción**: Crear commit de git con la implementación completa del mapa vectorial de rutas y su panel de detalles reactivo.
 - **Archivos involucrados**:
   - `src/components/sections/RouteMap.astro`
@@ -380,7 +380,7 @@ Cada tarea incluye:
 
 ## Bloque 7: Componente Interactivo 3 - Formulario Simulado de Contacto
 
-### - [ ] T28: Maquetar estructura semántica y accesible de `ContactForm.astro`
+### - [X] T28: Maquetar estructura semántica y accesible de `ContactForm.astro`
 - **Descripción**: Crear la sección `<section id="contacto" class="scroll-mt-20 ...">` con `SectionHeading.astro`. Maquetar el formulario con campos: Nombre completo (`type="text" required`), Correo electrónico (`type="email" required`), Destino de interés (`<select required>` con los 8 municipios), Experiencia deseada (`<select required>` con las 4 categorías) y Mensaje (`<textarea required>`). Incluir etiquetas `<label>` vinculadas mediante `for`/`id`, nota aclaratoria de canal demostrativo y botón de envío.
 - **Archivos involucrados**:
   - `src/components/sections/ContactForm.astro`
@@ -393,7 +393,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T29: Implementar validación nativa y procesamiento simulado en `ContactForm.astro`
+### - [X] T29: Implementar validación nativa y procesamiento simulado en `ContactForm.astro`
 - **Descripción**: Programar script en cliente que capture el evento `submit`, prevenga el envío por defecto (`event.preventDefault()`) y valide los campos mediante `form.checkValidity()`. Si hay campos inválidos, marcar visualmente con bordes de error y `aria-invalid="true"`. Si es válido, mostrar mensaje accesible de confirmación (`role="status"`, `aria-live="polite"`), reiniciar los campos con `form.reset()` y garantizar que no se emita ninguna petición HTTP/fetch a redes externas.
 - **Archivos involucrados**:
   - `src/components/sections/ContactForm.astro`
@@ -406,7 +406,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T30: Integrar formulario de contacto en `src/pages/index.astro`
+### - [X] T30: Integrar formulario de contacto en `src/pages/index.astro`
 - **Descripción**: Incorporar `ContactForm.astro` en la página principal `src/pages/index.astro` antes del pie de página.
 - **Archivos involucrados**:
   - `src/pages/index.astro`
@@ -418,7 +418,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T31: Git Checkpoint 7 - Formulario simulado de contacto
+### - [X] T31: Git Checkpoint 7 - Formulario simulado de contacto
 - **Descripción**: Crear commit de git con la implementación del formulario de contacto interactivo, validación accesible y procesamiento local simulado.
 - **Archivos involucrados**:
   - `src/components/sections/ContactForm.astro`
@@ -432,7 +432,7 @@ Cada tarea incluye:
 
 ## Bloque 8: Accesibilidad (a11y), Rendimiento y Pulido Responsive
 
-### - [ ] T32: Auditoría y correcciones de accesibilidad (WCAG 2.1 AA)
+### - [x] T32: Auditoría y correcciones de accesibilidad (WCAG 2.1 AA)
 - **Descripción**: Realizar revisión integral de accesibilidad en toda la landing page: verificar contraste cromático mínimo de 4.5:1 en textos normales y 3:1 en elementos de interfaz, navegación fluida exclusiva por teclado (`Tab`, `Shift+Tab`, `Enter`, `Space`, `Escape`), estados visibles de foco (`focus-visible:ring-2`) en botones, enlaces, tarjetas, modal y campos de formulario, y jerarquía estricta de encabezados (`h1` en Hero, `h2` en secciones, `h3` en tarjetas/paneles).
 - **Archivos involucrados**:
   - `src/styles/global.css`
@@ -447,7 +447,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T33: Optimización de imágenes, rendimiento y prueba de responsividad extrema
+### - [x] T33: Optimización de imágenes, rendimiento y prueba de responsividad extrema
 - **Descripción**: Verificar la carga optimizada de imágenes mediante `<Image />` de Astro (WebP/AVIF, dimensiones explícitas, lazy loading salvo en Hero con eager loading), atributos `alt` descriptivos en imágenes de contenido y `alt=""` con `aria-hidden="true"` en elementos decorativos. Probar la visualización en viewport continuo desde 320 px hasta 1920 px confirmando cero scroll horizontal y márgenes adecuados de anclas (`scroll-mt-20`).
 - **Archivos involucrados**:
   - Todos los componentes en `src/components/sections/`
@@ -460,7 +460,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T34: Git Checkpoint 8 - Accesibilidad, rendimiento y responsive
+### - [x] T34: Git Checkpoint 8 - Accesibilidad, rendimiento y responsive
 - **Descripción**: Crear commit de git con todas las mejoras y ajustes de accesibilidad, optimización de recursos y comportamiento responsive.
 - **Archivos involucrados**:
   - Componentes modificados durante la auditoría
@@ -474,7 +474,7 @@ Cada tarea incluye:
 
 ## Bloque 9: Verificación de Criterios de Aceptación y Despliegue en Vercel
 
-### - [ ] T35: Reemplazar placeholders por fotos reales de Wikimedia Commons y actualizar `docs/CREDITS.md`
+### - [X] T35: Reemplazar placeholders por fotos reales de Wikimedia Commons y actualizar `docs/CREDITS.md`
 - **Descripción**: Reemplazar todas las imágenes de muestra/placeholders en `src/assets/images/destinations/`, `src/assets/images/gallery/` y `src/assets/images/hero-bg.webp` por fotografías reales de Wikimedia Commons descargadas por el usuario. Actualizar exhaustivamente el archivo `docs/CREDITS.md` con autor, enlace de origen y licencia abierta de cada fotografía.
 - **Archivos involucrados**:
   - `src/assets/images/hero-bg.webp`
@@ -490,7 +490,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T36: Generar informe formal de verificación `docs/04-verification.md`
+### - [X] T36: Generar informe formal de verificación `docs/04-verification.md`
 - **Descripción**: Ejecutar la batería de pruebas y validaciones técnicas reales contra la totalidad de los 18 Criterios de Aceptación (CA-HERO-01 a CA-NAV-02) estipulados en `docs/01-spec.md`. Registrar en `docs/04-verification.md` cada criterio con su descripción, procedimiento de prueba ejecutado, resultado real obtenido (APROBADO o RECHAZADO) y evidencia técnica observable.
 - **Archivos involucrados**:
   - `docs/04-verification.md`
@@ -503,7 +503,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T37: Configuración para despliegue estático en Vercel y verificación de build
+### - [X] T37: Configuración para despliegue estático en Vercel y verificación de build
 - **Descripción**: Configurar los parámetros de salida estática de Astro (`output: 'static'` en `astro.config.mjs`) o archivo `vercel.json` si se requiere configuración específica de encabezados, ejecutar el comando de build de producción (`npm run build`) y verificar que el directorio resultante `dist/` contiene el sitio estático optimizado listo para servir en Vercel.
 - **Archivos involucrados**:
   - `astro.config.mjs`
@@ -517,7 +517,7 @@ Cada tarea incluye:
 
 ---
 
-### - [ ] T38: Git Checkpoint 9 - Verificación final y preparación de despliegue
+### - [X] T38: Git Checkpoint 9 - Verificación final y preparación de despliegue
 - **Descripción**: Crear commit final de git que incluya el reemplazo de fotos reales, actualización de `docs/CREDITS.md`, informe `docs/04-verification.md`, configuración de despliegue en Vercel y el estado consolidado de la aplicación.
 - **Archivos involucrados**:
   - `docs/04-verification.md`
