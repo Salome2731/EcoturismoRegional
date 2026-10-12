@@ -19,11 +19,11 @@
   },
   {
     "id": "gal-03",
-    "title": "Feria Campesina de San Jerónimo",
+    "title": "Parque Principal de San Jerónimo",
     "category": "cultural",
     "location": "San Jerónimo",
-    "alt": "Colorido mercado campesino con frutas tropicales, flores y artesanías locales dispuestas en puestos al aire libre en San Jerónimo",
-    "description": "Los mercados campesinos de San Jerónimo exhiben la variedad de flores y frutas tropicales que produce el municipio, siendo una experiencia de intercambio cultural y gastronómico directa con los productores.",
+    "alt": "Espacio publico para disfrutar de su clima acogedor y su gente en San Jerónimo",
+    "description": "Los espacios publicos de San Jerónimo son ideales para disfrutar de su clima acogedor y su gente.",
     "image": "gal-03.webp"
   },
   {
@@ -37,11 +37,11 @@
   },
   {
     "id": "gal-05",
-    "title": "Páramo en Neblina",
+    "title": "Pueblo Entre la Neblina",
     "category": "naturaleza",
     "location": "Toledo",
-    "alt": "Paisaje de páramo con frailejones y vegetación de alta montaña envuelto en niebla matutina en Toledo, norte de Antioquia",
-    "description": "El ecosistema de páramo que rodea Toledo presenta frailejones y vegetación especializada adaptada a las condiciones frías y húmedas de alta montaña, siendo regulador hídrico fundamental.",
+    "alt": "El pueblo envuelto en niebla matutina en Toledo, norte de Antioquia",
+    "description": "El ecosistema que rodea Toledo presenta vegetación especializada adaptada a las condiciones frías y húmedas de alta montaña, siendo regulador hídrico fundamental.",
     "image": "gal-05.webp"
   },
   {
@@ -94,8 +94,8 @@
     "title": "Ribera del Río Cauca en Santa Fe",
     "category": "aguas",
     "location": "Santa Fe de Antioquia",
-    "alt": "Ribera del río Cauca con aguas brillantes bajo sol tropical, vegetación de orilla y bañistas disfrutando del calor en Santa Fe de Antioquia",
-    "description": "Las orillas del río Cauca junto a Santa Fe de Antioquia son un destino popular para el baño y el descanso, combinando el calor del municipio con la frescura del río histórico.",
+    "alt": "Ribera del río Cauca con aguas brillantes bajo sol tropical, en Santa Fe de Antioquia",
+    "description": "Las orillas del río Cauca junto a Santa Fe de Antioquia son un destino popular para el descanso, combinando el calor del municipio con la frescura del río histórico.",
     "image": "gal-11.webp"
   },
   {
