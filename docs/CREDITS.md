@@ -1,40 +1,42 @@
-\# Créditos de imágenes
+# \# Créditos de imágenes
 
+# 
 
+# Las fotografías de esta versión fueron tomadas de internet (sitios de turismo, medios y redes sociales) únicamente como \*\*material de referencia para un trabajo académico\*\*. No se verificó su licencia y no se reclama autoría sobre ellas. El sitio se publica de forma temporal para su revisión y será retirado tras la evaluación.
 
-\## Estado actual
+# 
 
+# | Archivo | Fuente |
 
+# |---|---|
 
-Todas las imágenes del proyecto son \*\*placeholders generados localmente\*\* con `scripts/generate-placeholders.mjs` y convertidos a WebP con `scripts/convert-placeholders.mjs`. No provienen de internet ni tienen autor o licencia de terceros. Serán reemplazados por fotografías reales en la tarea T35.
+# | gal-01 | Dreamstime, ID 390660955, Jhampier Giron |
 
+# | gal-02 | Pinterest |
 
+# | gal-03 | gammacarmedellin.com |
 
-\## Registro de fotografías reales (completar en T35)
+# | gal-04 | BBC Mundo (Alejandra Martins) |
 
+# | gal-05 | coonorte.com.co |
 
+# | gal-06, gal-07 | Wikiloc |
 
-| Archivo | Autor | Enlace a Wikimedia Commons | Licencia |
+# | gal-08, abriaqui, san-jeronimo | turismoantioquia.travel |
 
-|---|---|---|---|
+# | gal-09 | Alcaldía de Medellín (Hidroituango) |
 
-| hero-bg.webp | | | |
+# | gal-10, gal-11, ebejico, toledo | Instagram |
 
-| destinations/santa-fe-antioquia.webp | | | |
+# | gal-12 | viajala.com.co |
 
-| destinations/ebejico.webp | | | |
+# | ituango | Radio Nacional |
 
-| destinations/san-jeronimo.webp | | | |
+# | peque | Prezi |
 
-| destinations/abriaqui.webp | | | |
+# | san-jose-montana | Gobernación de Antioquia (Facebook) |
 
-| destinations/peque.webp | | | |
+# | santa-fe-antioquia | puebliandoporantioquia.com.co |
 
-| destinations/toledo.webp | | | |
-
-| destinations/ituango.webp | | | |
-
-| destinations/san-jose-montana.webp | | | |
-
-| gallery/gal-01.webp a gal-12.webp | | | |
+# | hero-bg | pendiente (placeholder) |
 
